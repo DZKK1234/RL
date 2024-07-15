@@ -68,7 +68,7 @@ class DDPG(object):
         self.TAU = TAU # 目标网络更新幅度
         self.device = device # 将数据上传至GPU训练
         self.index_memory = 0 # 来计数样本个数
-        self.memory = np.zeros((memory_size, self.state_counters * 2 + self.action_counters + 1)) # 构建经验池
+        self.memory = np.zeros((memory_size, self.state_counters * 2 + self.action_counters + 2)) # 构建经验池
         # 构建在线Actor网络以及目标Actor网络
         self.Actor_Net_eval, self.Actor_Net_target = Actor_Net(self.state_counters, self.action_counters).to(self.device), \
                                                      Actor_Net(self.state_counters, self.action_counters).to(self.device)
